@@ -36,6 +36,8 @@ Build
 
         make
         
-* Run the application using a prototype scene
+* Run the application on a sample image
 
-        ./PIFCompressor.out --compress Input/lenna.tif --output Output/lenna.pif
+        ./PIFCompressor.out --compress input/lenna.tif --output output/lenna.pif
+        ./PIFCompressor.out --decompress output/lenna.pif --output output/lenna2.pif
+        
