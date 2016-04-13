@@ -13,7 +13,7 @@ function InstallDependency
 		sudo apt-get install --yes $1
 	elif [ -f /etc/arch-release ]; then
 		sudo pacman -S $1
-	elif [ -f /etc/fedora-ralease ]; then
+	elif [ -f /etc/fedora-release ]; then
 		sudo yum install $1
 	else
 		echo "The installation was interupted because there is no know package manager."
@@ -24,8 +24,6 @@ if [[ `uname` == "Linux" ]]; then
 	dep_ubuntu="libopencv-dev zlib1g-dev"
 
 	length=$(echo $dep_ubuntu | wc -w)
-
-
 
 	for pkg in $dep_ubuntu; do
 	    if hash ${pkg} 2>/dev/null; then
