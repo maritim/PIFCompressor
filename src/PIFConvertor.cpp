@@ -12,8 +12,6 @@ PIFConvertor::~PIFConvertor ()
 
 }
 
-#include <iostream>
-
 void PIFConvertor::Image2PIF (PIFFile* file, ImagePyramid* pyramid)
 {
 	file->width = pyramid->GetWidth ();

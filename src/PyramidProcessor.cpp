@@ -17,8 +17,6 @@ PyramidProcessor::~PyramidProcessor ()
 
 }
 
-#include <iostream>
-
 Image* PyramidProcessor::Downscale (Image* source, PyramidProcessor::DownsamplingFunction* f)
 {
 	if (f == nullptr) {
@@ -33,13 +31,11 @@ Image* PyramidProcessor::Downscale (Image* source, PyramidProcessor::Downsamplin
 
 	Image* output = new Image (outputHeight, outputWidth);
 
-	uchar* functionInput = new uchar [4];
+	uchar functionInput[4];
 	std::size_t outputI, outputJ;
 
 	for (std::size_t i=0;i<height;i+=2) {
 		for (std::size_t j=0;j<width;j+=2) {
-
-			// std::cout << i << " " << j << std::endl;
 
 			outputI = i >> 1;
 			outputJ = j >> 1;
@@ -53,8 +49,6 @@ Image* PyramidProcessor::Downscale (Image* source, PyramidProcessor::Downsamplin
 			output->GetMat ()->at<uchar>(outputI, outputJ) = f->Execute (functionInput);
 		}
 	}
-
-	delete functionInput;
 
 	return output;
 }
@@ -73,7 +67,7 @@ Image* PyramidProcessor::Upscale (Image* source, Size size, PyramidProcessor::Up
 
 	Image* output = new Image (outputHeight, outputWidth);
 
-	uchar* functionOutput = new uchar [4];
+	uchar functionOutput [4];
 	std::size_t outputI, outputJ;
 
 	for (std::size_t i=0;i<height;i++) {
@@ -96,8 +90,6 @@ Image* PyramidProcessor::Upscale (Image* source, Size size, PyramidProcessor::Up
 			}
 		}
 	}
-
-	delete functionOutput;
 
 	return output;
 }

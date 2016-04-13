@@ -3,7 +3,7 @@
 
 struct PIFFile
 {
-	unsigned char id[4] = "PIF";
+	unsigned char id[4] = { 'P', 'I', 'F', 0x0 };
 	unsigned short int width;
 	unsigned short int height;
 	unsigned short int levels;

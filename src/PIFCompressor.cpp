@@ -28,8 +28,6 @@ PIFCompressor::~PIFCompressor ()
 
 }
 
-#include <iostream>
-
 void PIFCompressor::Compress (const std::string& inputFilename, const std::string& outputFilename)
 {
 	Image* image = FileManager::Instance ()->LoadImage (inputFilename);
@@ -117,5 +115,6 @@ void PIFCompressor::Decompress (const std::string& inputFilename, const std::str
 
 	FileManager::Instance ()->SaveImage (image, outputFilename);
 
+	// TODO: check pyramid deletion issues
 	// delete pyramid;
 }
